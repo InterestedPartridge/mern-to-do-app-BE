@@ -22,14 +22,6 @@ export const login = async (req, res, next) => {
   }
 };
 
-export const home = async (req, res, next) => {
-  try {
-    sendCookie(user, res, `Welcome back, ${user.name}`, 200);
-  } catch (error) {
-    next(error);
-  }
-};
-
 export const register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
