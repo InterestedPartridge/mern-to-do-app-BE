@@ -25,18 +25,12 @@ app.use(
   })
 );
 
-
-
 // Using routes
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/task", taskRouter);
 
-app.get("/", isAuthenticated, (req, res) => {
-  try {
-    sendCookie(req.user , res, `Welcome back, ${req.user.name}`, 200);
-  } catch (error) {
-    next(error);
-  }
+app.get("/", (req, res) => {
+  res.send("nice try");
 });
 
 // Using Error Middleware
